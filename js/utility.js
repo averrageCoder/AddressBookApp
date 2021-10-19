@@ -30,3 +30,15 @@ const setTextValue = (property, value) => {
 function getInputValueId(id) {
     return document.querySelector(id).value;
 }
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}
+
+const setElementValues = (cls, value) => {
+    const object = document.getElementsByTagName(cls);
+    for(var obj of object) {
+        obj.innerHTML = value;
+    }
+}

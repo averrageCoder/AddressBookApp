@@ -87,7 +87,15 @@ function save(event) {
 }
 
 function resetForm() {
-
+    setValue('#name','');
+    setValue('#address','');
+    setValue('#city','');
+    setValue('#state','');
+    setValue('#zip','');
+    setValue('#phone','');
+    setElementValues('error-output','')
+    print_state("state");
+    print_city("city", 0);
 }
 
 function setContactObject() {
@@ -105,7 +113,7 @@ function setContactObject() {
         alert(contactObj);
     }
     catch (e) {
-        alert(e);
+        throw e;
     }
 }
 
