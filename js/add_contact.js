@@ -60,3 +60,11 @@ function validateAddress() {
         setTextValue('.address-error',e);
     }
 }
+
+function save() {
+    
+}
+
+function resetForm() {
+
+}
