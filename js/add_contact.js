@@ -75,11 +75,11 @@ function save(event) {
     event.stopPropagation();
     try {
         setContactObject();
-        // if(site_properties.useLocalStorage.match("true")) {
-        //     createAndUpdateStorage();
-        //     resetForm();
-        //     window.location.replace(site_properties.homepage);
-        // }
+        if(site_properties.useLocalStorage.match("true")) {
+            createAndUpdateStorage();
+            resetForm();
+            window.location.replace(site_properties.homepage);
+        }
     }
     catch(e) {
         alert(e);
@@ -91,22 +91,41 @@ function resetForm() {
 }
 
 function setContactObject() {
-    contactObj = new Contact();
+    contactObj = new AddressBook();
     try {
         if(!isUpdate && site_properties.useLocalStorage.match("true")) {
             contactObj.id = createNewContactID();
         }
-        if(checkName(getInputValueId('#name'))) contactObj._fullName = getInputValueId('#name');
-        if(checkPhone(getInputValueId('#phone'))) contactObj._phoneNumber = getInputValueId('#phone');
-        if(checkAddress(getInputValueId('#address'))) contactObj._address = getInputValueId('#address');
-        contactObj._city = getInputValueId('#city');
-        contactObj._state = getInputValueId('#state');
-        contactObj._zip = getInputValueId('#zip');
+        contactObj.fullName = getInputValueId('#name');
+        contactObj.phoneNumber = getInputValueId('#phone');
+        contactObj.address = getInputValueId('#address');
+        contactObj.city = getInputValueId('#city');
+        contactObj.state = getInputValueId('#state');
+        contactObj.zip = getInputValueId('#zip');
         alert(contactObj);
     }
     catch (e) {
         alert(e);
     }
+}
+
+function createAndUpdateStorage() {
+    let AddressBookList = JSON.parse(localStorage.getItem('AddressBookList'));
+    if(AddressBookList != undefined) {
+        let addressBookData = AddressBookList
+                            .find(contact => contact.id == contactObj.id);
+        if(!addressBookData) AddressBookList.push(contactObj);
+        else {
+            const index = AddressBookList
+                         .map(contact => contact.id)
+                         .indexOf(addressBookData.id);
+                         AddressBookList.splice(index, 1, contactObj);
+        }
+    }
+    else {
+        AddressBookList = [contactObj];
+    }
+    localStorage.setItem("AddressBookList", JSON.stringify(AddressBookList));
 }
 
 function createNewContactID() {
