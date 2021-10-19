@@ -173,3 +173,10 @@ label {
     border-radius: 3px;
     resize: vertical;
 }
+
+error-output {
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+    margin-top: 10px;
+}

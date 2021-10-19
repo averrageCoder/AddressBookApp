@@ -28,10 +28,49 @@
                 <div class="form-title">
                     Person Address Form
                 </div>
-                <div>
-                    <a href="../pages/home.html" class="close-button">
+                <div class="flexbox">
+                    <a href="../pages/home.html" class="flexbox close-button">
                     <img class="hvr-icon-spin hvr-icon" src="../assets/icons/cross.svg" alt="">
                     </a>
+                </div>
+            </div>
+            <div class="form-body">
+                <div class="row-content">
+                    <label class="label text" for="name">Full Name</label>
+                    <input class="input" type="text" id="name" name="name" placeholder="" required>
+                    <error-output class="name-error" for="name"></error-output>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="phone">Phone Number</label>
+                    <input class="input" type="text" id="phone" name="phone" placeholder="" required>
+                    <error-output class="phone-error" for="phone"></error-output>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="notes">Address</label>
+                    <textarea id="address" class="input" name="address" style="height: 100px;" required></textarea>
+                </div>
+                <div class="column-content">
+                    <div class="column">
+                        <label class="label text" for="phone">State</label>
+                        <div>
+                            <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+                        </div>
+                        <error-output class="phone-error" for="phone"></error-output>
+                    </div>
+
+                    <div class="column">
+                        <label class="label text" for="phone">City</label>
+                        <div>
+                            <select id ="state" class="form-control" required></select>
+                        </div>
+                        <error-output class="phone-error" for="phone"></error-output>
+                    </div>
+        
+                    <div class="column" style="margin-right: 0px;">
+                        <label class="label text" for="phone">Zip Code</label>
+                        <input class="input" type="text" id="phone" name="phone" placeholder="" required>
+                        <error-output class="phone-error" for="phone"></error-output>
+                    </div>
                 </div>
             </div>
         </form>
