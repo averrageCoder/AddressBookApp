@@ -23,7 +23,7 @@
         </div>
     </header>
     <div class="form-content">
-        <form action="#" autocomplete="off">
+        <form action="#" autocomplete="off" onreset="event.preventDefault(); resetForm()" onsubmit="save(event)">
             <div class="form-header">
                 <div class="form-title">
                     Person Address Form
@@ -72,6 +72,12 @@
                         <input class="input" type="text" id="phone" name="phone" placeholder="" required>
                         <error-output class="phone-error" for="phone"></error-output>
                     </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <div class="submit-reset">
+                    <button type="submit" class="button submitButton">Add</button>
+                    <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
         </form>
