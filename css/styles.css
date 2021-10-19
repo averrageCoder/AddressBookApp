@@ -117,10 +117,8 @@ form {
 .row-content {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
     align-items: left;
     border: 0px solid green;
-    margin-bottom: 10px;
 }
 
 .column-content {
