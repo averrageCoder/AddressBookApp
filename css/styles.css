@@ -4,6 +4,11 @@ body {
     background-color: #f7f7f7;
 }
 
+.flexbox {
+    display: flex;
+    align-items: center;
+}
+
 .header {
     padding: 15px 0;
     background-color: white;
@@ -86,10 +91,15 @@ form {
     flex-direction: row;
     justify-content: space-between;
 }
+.form-body, .form-footer {
+    padding: 15px 100px;
+}
+
 .form-title {
     margin-left: auto;
     margin-right: auto;
 }
+
 
 .close-button img{
     background-color: white;
@@ -100,5 +110,66 @@ form {
 }
 
 .close-button img:hover{
-    background-color: black;
+    background-color: red;
+}
+
+/* UC3 */
+.row-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    align-items: left;
+    border: 0px solid green;
+    margin-bottom: 10px;
+}
+
+.column-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: left;
+    border: 0px solid green;
+    margin-bottom: 10px;
+}
+
+.column {
+    width: 33%;
+    margin-right: 15px;
+}
+
+select {
+    padding: 10px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font: normal normal normal 16px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    background-color: transparent;
+}
+
+select {
+    width: 100%;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.text {
+    font: normal normal normal 16px/24px Roboto;
+    color: #42515f;
+    opacity: 1;
+    font-family: Roboto;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    resize: vertical;
 }
