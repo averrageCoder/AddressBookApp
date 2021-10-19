@@ -13,7 +13,7 @@
 <body>
     <header class="header-content header">
         <div class="logo-content">
-            <a href="./home.html">
+            <a class="homepage_href" >
                 <img src="../assets/images/logo.png" alt="logo" width="50">
                 <div>
                     <span class="address-text">ADDRESS</span><br>
@@ -23,13 +23,13 @@
         </div>
     </header>
     <div class="form-content">
-        <form action="#" autocomplete="off" onreset="event.preventDefault(); resetForm()" onsubmit="save(event)">
+        <form action="#" autocomplete="nope" onreset="event.preventDefault(); resetForm()" onsubmit="save(event)">
             <div class="form-header">
                 <div class="form-title">
                     Person Address Form
                 </div>
                 <div class="flexbox">
-                    <a href="../pages/home.html" class="flexbox close-button">
+                    <a href="" class="homepage_href flexbox close-button">
                     <img class="hvr-icon-spin hvr-icon" src="../assets/icons/cross.svg" alt="">
                     </a>
                 </div>
@@ -54,30 +54,27 @@
                     <div class="column">
                         <label class="label text" for="phone">State</label>
                         <div>
-                            <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+                            <select onchange="print_city('city', this.selectedIndex);" id="state" name ="stt" class="form-control" required></select>
                         </div>
-                        <error-output class="phone-error" for="phone"></error-output>
                     </div>
 
                     <div class="column">
                         <label class="label text" for="phone">City</label>
                         <div>
-                            <select id ="state" class="form-control" required></select>
+                            <select id ="city" class="form-control" required></select>
                         </div>
-                        <error-output class="phone-error" for="phone"></error-output>
                     </div>
         
                     <div class="column" style="margin-right: 0px;">
-                        <label class="label text" for="phone">Zip Code</label>
-                        <input class="input" type="text" id="phone" name="phone" placeholder="" required>
-                        <error-output class="phone-error" for="phone"></error-output>
+                        <label class="label text" for="zip">Zip Code</label>
+                        <input class="input" type="text" id="zip" name="zip" placeholder="" required>
                     </div>
                 </div>
             </div>
             <div class="form-footer">
                 <div class="submit-reset">
                     <button type="submit" class="button submitButton">Add</button>
-                    <button type="reset" class="resetButton button">Reset</button>
+                    <button type="reset" class="button resetButton">Reset</button>
                 </div>
             </div>
         </form>
@@ -85,6 +82,7 @@
     <script src="../js/cities.js"></script>
     <script defer src="../js/utility.js"></script>
     <script defer src="../js/site-properties.js"></script>
+    <script defer src="../js/AddressBookSystem.js"></script>
     <script src="../js/add_contact.js"></script>
 </body>
 </html>
