@@ -26,3 +26,7 @@ const setTextValue = (property, value) => {
     const text_error = document.querySelector(property);
     text_error.textContent = value;
 }
+
+function getInputValueId(id) {
+    return document.querySelector(id).value;
+}
