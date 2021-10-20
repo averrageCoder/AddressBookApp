@@ -130,8 +130,6 @@ function createOrUpdateAddressBook() {
         methodCall = "PUT";
         postURL = postURL + contactObj.id.toString();
     }
-    
-    console.log(methodCall, postURL)
     makePromisecall(methodCall,postURL, true,contactObj)
                 .then(responseText => {
                     resetForm();
