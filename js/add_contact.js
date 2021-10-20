@@ -166,7 +166,6 @@ function createNewContactID() {
 }
 
 function checkForUpdate() {
-    contactObj = new AddressBook();
     const addressBookJSON = localStorage.getItem('editContact');
     isUpdate = addressBookJSON ? true:false;
     if(!isUpdate) return;
