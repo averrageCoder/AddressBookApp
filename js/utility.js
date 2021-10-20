@@ -22,6 +22,14 @@ function checkAddress(address) {
     else return true;
 }
 
+function checkZip(zip) {
+    let zipRegex = RegExp('^[0-9]{3}\\s{0,1}[0-9]{3}$')
+    if(!zipRegex.test(zip)) {
+        throw 'Zip is incorrect';
+    }
+    else return true;
+}
+
 const setTextValue = (property, value) => {
     const text_error = document.querySelector(property);
     text_error.textContent = value;

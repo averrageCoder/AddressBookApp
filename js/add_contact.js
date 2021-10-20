@@ -13,6 +13,9 @@ window.addEventListener('DOMContentLoaded',(event) => {
     const address = document.querySelector('#address');
     address.addEventListener('input', validateAddress);
 
+    const zip = document.querySelector('#zip');
+    zip.addEventListener('input', validateZip);
+
     object = document.querySelectorAll(".homepage_href")
     for(var obj of object) {
         obj.href = site_properties.homepage;
@@ -66,6 +69,23 @@ function validateAddress() {
     }
     catch(e) {
         setTextValue('.address-error',e);
+        return false;
+    }
+}
+
+function validateZip() {
+    const zip = document.querySelector('#zip');
+    if(zip.value.length == 0) {
+        setTextValue('.zip-error','');
+        return false;
+    }
+    try {
+        checkZip(zip.value);
+        setTextValue('.zip-error','');
+        return true;
+    }
+    catch(e) {
+        setTextValue('.zip-error',e);
         return false;
     }
 }

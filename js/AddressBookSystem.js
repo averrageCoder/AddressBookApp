@@ -40,6 +40,10 @@ class AddressBook {
 
     get zip() {return this._zip};
     set zip(zip) {
+        let zipRegex = RegExp('^[0-9]{3}\\s{0,1}[0-9]{3}$')
+        if(!zipRegex.test(zip)) {
+            throw 'Zip is incorrect';
+        }
         this._zip = zip;
     }
 
