@@ -47,21 +47,21 @@
                 </div>
                 <div class="row-content">
                     <label class="label text" for="notes">Address</label>
-                    <textarea id="address" class="input" name="address" style="height: 100px;" required></textarea>
+                    <textarea id="address" class="input" name="address" style="height: 6vw;" required></textarea>
                     <error-output class="address-error" for="address"></error-output>
                 </div>
                 <div class="column-content">
                     <div class="column">
                         <label class="label text" for="phone">State</label>
                         <div>
-                            <select onchange="print_city('city', this.selectedIndex);" id="state" name ="stt" class="form-control" required></select>
+                            <select onchange="print_city('city', this.selectedIndex);" id="state" name ="stt" class="select" required></select>
                         </div>
                     </div>
 
                     <div class="column">
                         <label class="label text" for="phone">City</label>
                         <div>
-                            <select id ="city" class="form-control" required></select>
+                            <select id ="city" class="select" required></select>
                         </div>
                     </div>
         
@@ -74,7 +74,7 @@
             </div>
             <div class="form-footer">
                 <div class="submit-reset">
-                    <button type="submit" class="button submitButton">Add</button>
+                    <button type="submit" id="submitButton" class="button submitButton">Add</button>
                     <button type="reset" class="button resetButton">Reset</button>
                 </div>
             </div>
