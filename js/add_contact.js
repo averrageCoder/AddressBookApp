@@ -20,6 +20,8 @@ window.addEventListener('DOMContentLoaded',(event) => {
     for(var obj of object) {
         obj.href = site_properties.homepage;
     }
+
+    checkForUpdate();
 });
 
 function validateName() {
@@ -119,18 +121,17 @@ function resetForm() {
 }
 
 function setContactObject() {
-    contactObj = new AddressBook();
     try {
         if(!isUpdate && site_properties.useLocalStorage.match("true")) {
             contactObj.id = createNewContactID();
         }
-        contactObj.fullName = getInputValueId('#name');
-        contactObj.phoneNumber = getInputValueId('#phone');
-        contactObj.address = getInputValueId('#address');
-        contactObj.city = getInputValueId('#city');
-        contactObj.state = getInputValueId('#state');
-        contactObj.zip = getInputValueId('#zip');
-        alert(contactObj);
+        if(checkName(getInputValueId('#name'))) contactObj._fullName = getInputValueId('#name');
+        if(checkPhone(getInputValueId('#phone'))) contactObj._phoneNumber = getInputValueId('#phone');
+        if(checkAddress(getInputValueId('#address'))) contactObj._address = getInputValueId('#address');
+        contactObj._city = getInputValueId('#city');
+        contactObj._state = getInputValueId('#state');
+        if(checkZip(getInputValueId('#zip'))) contactObj._zip = getInputValueId('#zip');
+        alert("Saved!");
     }
     catch (e) {
         throw e;
@@ -142,6 +143,7 @@ function createAndUpdateStorage() {
     if(AddressBookList != undefined) {
         let addressBookData = AddressBookList
                             .find(contact => contact.id == contactObj.id);
+        console.log("addressBookData", addressBookData, " ",contactObj.id)
         if(!addressBookData) AddressBookList.push(contactObj);
         else {
             const index = AddressBookList
@@ -161,4 +163,23 @@ function createNewContactID() {
     contactID = !contactID ? 1: (parseInt(contactID)+1).toString();
     localStorage.setItem('contactID', contactID);
     return contactID;
+}
+
+function checkForUpdate() {
+    contactObj = new AddressBook();
+    const addressBookJSON = localStorage.getItem('editContact');
+    isUpdate = addressBookJSON ? true:false;
+    if(!isUpdate) return;
+    contactObj = JSON.parse(addressBookJSON);
+    setForm();
+}
+
+function setForm() {
+    setValue('#name',contactObj._fullName);
+    setValue('#address',contactObj._address);
+    setValue('#zip',contactObj._zip);
+    setValue('#phone',contactObj._phoneNumber);
+    setValue('#state',contactObj._state);
+    document.querySelector('#state').onchange();
+    setValue('#city',contactObj._city);
 }
