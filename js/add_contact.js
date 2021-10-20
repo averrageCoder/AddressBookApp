@@ -102,6 +102,9 @@ function save(event) {
             resetForm();
             window.location.replace(site_properties.homepage);
         }
+        else {
+            createOrUpdateAddressBook();
+        }
     }
     catch(e) {
         alert(e);
@@ -118,6 +121,25 @@ function resetForm() {
     setElementValues('error-output','')
     print_state("state");
     print_city("city", 0);
+}
+
+function createOrUpdateAddressBook() {
+    let postURL = site_properties.server_url;
+    let methodCall = "POST";
+    if(isUpdate) {
+        methodCall = "PUT";
+        postURL = postURL + contactObj.id.toString();
+    }
+    
+    console.log(methodCall, postURL)
+    makePromisecall(methodCall,postURL, true,contactObj)
+                .then(responseText => {
+                    resetForm();
+                    window.location.replace(site_properties.homepage);
+                })
+                .catch(error => {
+                    throw error;
+                });
 }
 
 function setContactObject() {
