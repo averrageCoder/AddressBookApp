@@ -48,7 +48,7 @@ class AddressBook {
     }
 
     toString() {
-        return "id= "+this.id+"fullName= "+this.fullName+", address= "+this.address
+        return "id= "+this.id+", fullName= "+this.fullName+", address= "+this.address
                 +", city= "+this.city+", state= "+this.state
                 +", zip= "+this.zip+", phoneNmber= "+this.phoneNumber;
     }
