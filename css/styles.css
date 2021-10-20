@@ -208,6 +208,11 @@ error-output {
     margin-right: 30px;
     background-color: lightgreen;
 }
+
+.submitButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 .resetButton {
     border: 1px solid blue;
     background-color: lightblue;
