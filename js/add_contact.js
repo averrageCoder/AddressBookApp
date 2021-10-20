@@ -21,7 +21,17 @@ window.addEventListener('DOMContentLoaded',(event) => {
         obj.href = site_properties.homepage;
     }
 
+    object = document.querySelectorAll(".input")
+    for(var obj of object) {
+        obj.addEventListener('input', validateEntireForm);
+    }
+
+    object = document.querySelectorAll(".select")
+    for(var obj of object) {
+        obj.addEventListener('change', validateEntireForm);
+    }
     checkForUpdate();
+    validateEntireForm();
 });
 
 function validateName() {
@@ -201,4 +211,24 @@ function setForm() {
     setValue('#state',contactObj._state);
     document.querySelector('#state').onchange();
     setValue('#city',contactObj._city);
+    validateEntireForm();
+}
+
+function validateEntireForm() {
+    try {
+        checkName(getInputValueId('#name'));
+        checkPhone(getInputValueId('#phone'));
+        checkAddress(getInputValueId('#address'));
+        if (getInputValueId('#city') == "") throw "";
+        if (getInputValueId('#state') == "") throw "";
+        checkZip(getInputValueId('#zip'));
+        let button = document.getElementById("submitButton");
+        button.disabled = false;
+        console.log("disabled removed")
+    }
+    catch(e) {
+        let button = document.getElementById("submitButton");
+        button.disabled = true;
+        console.log("disabled")
+    }
 }
