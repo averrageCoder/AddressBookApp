@@ -219,8 +219,13 @@ error-output {
         margin-right: 0px;
         height: 35px;
     }
+
     input {
         height: 35px;
+    }
+
+    .form-header {
+        font-size: 20px;
     }
     .form-body, .form-footer {
         padding: 15px;
