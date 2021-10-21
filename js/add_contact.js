@@ -198,7 +198,11 @@ function createNewContactID() {
 function checkForUpdate() {
     const addressBookJSON = localStorage.getItem('editContact');
     isUpdate = addressBookJSON ? true:false;
-    if(!isUpdate) return;
+    if(!isUpdate) {
+        document.getElementById("submitButton").textContent = "Add";
+        return;
+    }
+    document.getElementById("submitButton").textContent = "Update";
     contactObj = JSON.parse(addressBookJSON);
     setForm();
 }
@@ -224,11 +228,11 @@ function validateEntireForm() {
         checkZip(getInputValueId('#zip'));
         let button = document.getElementById("submitButton");
         button.disabled = false;
-        console.log("disabled removed")
+        //console.log("disabled removed")
     }
     catch(e) {
         let button = document.getElementById("submitButton");
         button.disabled = true;
-        console.log("disabled")
+        //console.log("disabled", e)
     }
 }

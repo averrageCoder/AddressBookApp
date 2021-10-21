@@ -15,7 +15,7 @@ function checkPhone(phone) {
 }
 
 function checkAddress(address) {
-    let addressRegex = RegExp('^(\\b[\\w]{3,}\\s*)+$');
+    let addressRegex = RegExp('^(\\b[\\w]{3,}\\s*){2,}$');
     if(!addressRegex.test(address)) {
         throw 'Address is incorrect';
     }
